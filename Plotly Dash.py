@@ -4,17 +4,23 @@ import dash_html_components as html
 
 app = dash.Dash()
 
+colors = {
+    'text': '#ff0000',
+    'plot_color':'#D3D3D3',
+    'paper_color':'#00FFFF'
+}
+
 app.layout = html.Div([
     html.H1(children = 'Hello Dash!!!',
             style ={
                 'textAlign': 'center',
-                'color': '#ff0000' #RED
+                'color': colors['text'] #RED
             }
             ),
     html.Div(children = 'Dash - A data product developement framework from display',
              style ={
                 'textAlign': 'center',
-                'color': '#ff0000'
+                'color': colors['text']
             }
             ),
     dcc.Graph(
@@ -25,10 +31,10 @@ app.layout = html.Div([
                 {'x':[4,5,6],'y':[20,24,26],'type':'bar','name': 'second chart'}
             ],
             'layout': {
-                'plot_bgcolor': '#D3D3D3',
-                'paper_bgcolor' : '#00FFFF',
+                'plot_bgcolor': colors['plot_color'],
+                'paper_bgcolor' : colors['paper_color'],
                 'font': {
-                  'color': '#ff0000'  
+                  'color': colors['text']  
                 },
                 'title': 'simple bar chart'
             }
