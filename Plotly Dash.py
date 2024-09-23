@@ -5,8 +5,18 @@ import dash_html_components as html
 app = dash.Dash()
 
 app.layout = html.Div([
-    html.H1('Hello Dash!!!'),
-    html.Div('Dash - A data product developement framework from display'),
+    html.H1(children = 'Hello Dash!!!',
+            style ={
+                'textAlign': 'center',
+                'color': '#ff0000' #RED
+            }
+            ),
+    html.Div(children = 'Dash - A data product developement framework from display',
+             style ={
+                'textAlign': 'center',
+                'color': '#ff0000'
+            }
+            ),
     dcc.Graph(
         id = 'sample-graph',
         figure={
