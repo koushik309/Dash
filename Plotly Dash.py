@@ -1,6 +1,7 @@
 import dash
 from dash import dcc, html
 import plotly.graph_objs as go
+import pandas as pd
 import numpy as np
 
 app = dash.Dash(__name__)
@@ -8,6 +9,9 @@ app = dash.Dash(__name__)
 np.random.seed(50)
 x_rand = np.random.randint(1, 61, 60)
 y_rand = np.random.randint(1, 61, 60)
+
+orders = pd.read_excel('sales.xls')
+
 
 colors = {
     'text': '#ff0000',
@@ -50,15 +54,16 @@ app.layout = html.Div([
         figure={
             'data': [
                 go.Scatter(
-                    x=x_rand,
-                    y=y_rand,
+                    x=orders.S,
+                    y=orders.P,
                     mode='markers'
                 )
             ],
             'layout': go.Layout(
                 title='Scatter plot of random 60 points',
-                xaxis={'title': 'Random X values'},
-                yaxis={'title': 'Random Y values'}
+                xaxis={'title': 'Sales'},
+                yaxis={'title': 'Profit'},
+                hovermode = 'closest'
             )
         }
     )
@@ -66,3 +71,4 @@ app.layout = html.Div([
 
 if __name__ == '__main__':
     app.run_server(port=4050)
+    
