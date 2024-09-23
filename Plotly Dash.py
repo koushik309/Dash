@@ -25,6 +25,11 @@ app.layout = html.Div([
                 {'x':[4,5,6],'y':[20,24,26],'type':'bar','name': 'second chart'}
             ],
             'layout': {
+                'plot_bgcolor': '#D3D3D3',
+                'paper_bgcolor' : '#00FFFF',
+                'font': {
+                  'color': '#ff0000'  
+                },
                 'title': 'simple bar chart'
             }
         }
